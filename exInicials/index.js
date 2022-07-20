@@ -212,24 +212,24 @@
 
 //************************************ */
 
-const time = document.querySelector('#time')
-let value = Number(prompt('Escribe el número de segundos'))
+// const time = document.querySelector('#time')
+// let value = Number(prompt('Escribe el número de segundos'))
 
-time.innerHTML = value
+// time.innerHTML = value
 
-const interval = setInterval(() =>{
+// const interval = setInterval(() =>{
 
-  value--
+//   value--
 
-  if(value === 0) {
-    time.innerHTML = 'Boom'
-    return clearInterval(interval)
-  } 
+//   if(value === 0) {
+//     time.innerHTML = 'Boom'
+//     return clearInterval(interval)
+//   } 
 
-  time.innerHTML = value
+//   time.innerHTML = value
 
 
-}, 1000)
+// }, 1000)
 
 
 

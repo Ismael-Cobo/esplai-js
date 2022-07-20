@@ -28,7 +28,24 @@
     const letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T']
 
 
-    const calcular = () => resultDni.innerHTML = letras[Number(dni.value) % 23]
+    const calcular = () => {
+
+      let lletraDNI = dni.value.charAt(dni.value.length - 1).toUpperCase()
+      let numberdni = Number(dni.value.slice(0, -1))
+
+      console.log(letras[numberdni % 23] == lletraDNI)
+
+      if (lletraDNI !== letras[numberdni % 23]) {
+
+        alert('Error el dni no es correcto')
+        return
+      }
+
+
+
+      resultDni.innerHTML = letras[numberdni % 23]
+
+    }
 
   </script>
 
