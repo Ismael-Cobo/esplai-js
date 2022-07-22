@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>React - ejercicios</title>
+  <script src="https://unpkg.com/react@15/dist/react.min.js"> </script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+  <style>
+    div.bola {
+      background-color: red;
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      margin: 5px;
+      border-radius: 100%;
+    }
+
+    div.bola.azul {
+      background-color: blue;
+    }
+
+    .vermell {
+      color: red;
+    }
+
+    .verd {
+      color: green;
+    }
+
+    .letra_grande {
+      font-size: 40px;
+    }
+
+    .card {
+      border: 1px solid blue;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: fit-content;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+
+    function Main() {
+
+      return (
+        <div>
+          <Titulo mensaje="hola react" />
+          <Bola />
+          <BolaX talla="80px" margen="10px" fondo="red" />
+          <CuadradoB talla="70px" margen="8px" grosor="5px" color="red" />
+          <Linea style={{ marginTop: "1px", border: "1px solid black" }} />
+          <Linea style={{ marginTop: "3px", border: "1px solid black" }} />
+          <Capital nom="barcelona" />
+          <Gato ancho="200" alto="200" nombre="Garfield" />
+          <FotoBola src="http://via.placeholder.com/200x200" radio="100" />
+        </div>
+      );
+    }
+
+    const Titulo = (props) => {
+      return <h1 style={{ fontSize: props.lletra }} className={props.clase}>{props.mensaje}</h1>;
+    }
+
+    const Bola = () => <div className="bola" ></div>;
+    const BolaX = ({ talla, margen, fondo }) => <div style={{ width: talla, height: talla, margin: margen, backgroundColor: fondo, borderRadius: "999px" }} />
+    const CuadradoB = ({ talla, margen, grosor, color }) => <div style={{ width: talla, height: talla, margin: margen, border: `${grosor} solid ${color}` }} />
+    const Linea = ({ style }) => <div style={style} />
+
+    const Capital = ({ nom }) => {
+
+      return (
+        <div>
+          <span className='letra_grande' >{nom.charAt(0).toUpperCase()}</span>
+          <p style={{ textTransform: "capitalize" }}>{nom}</p>
+        </div>
+      )
+
+    }
+
+    const Gato = ({ ancho, alto, nombre }) => {
+
+      return (
+        <div className='card'>
+
+          <img style={{ width: ancho, height: alto }} src='./img/gato.jpg' />
+          <p>{nombre}</p>
+        </div>
+      )
+    }
+
+    const FotoBola = ({ src, radio }) => {
+
+      return <img src={src} style={{ borderRadius: `${radio}px` }} />
+    }
+
+    ReactDOM.render(<Main />, document.getElementById("root"));
+  </script>
+</body>
+
+</html>
